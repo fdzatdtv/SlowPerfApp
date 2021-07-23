@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="SlowPerfWpfApp.RecentListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SlowPerfWpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <Label FontSize="32">Reports</Label>
+            <Button HorizontalAlignment="Right" Height="26" Padding="4" Margin="10" Click="OnAddButtonClicked">Add</Button>
+        </DockPanel>
+        <ListView x:Name="lvRecent" Grid.Row="1" SelectionChanged="LvRecent_OnSelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Name}" FontSize="16" FontWeight="Bold" Margin="0" Padding="1" />
+                        <Label Content="{Binding Path}" FontSize="8" FontWeight="Light" Margin="0" Padding="1" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="SlowPerfWpfApp.TableView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SlowPerfWpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <DockPanel>
+            <local:FilterControl x:Name="filterInput" DockPanel.Dock="Top" />
+            <ScrollViewer x:Name="HeaderScroll" DockPanel.Dock="Top" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                <local:HeaderRowView x:Name="Header" />
+            </ScrollViewer>
+            <ScrollViewer x:Name="FooterScroll" DockPanel.Dock="Bottom" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
+                <local:FooterRowView x:Name="Footer"  />
+            </ScrollViewer>
+            <ListView x:Name="OuterTable">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:BodyRowView MouseMove="ListviewItem_MouseMove"></local:BodyRowView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</UserControl>
